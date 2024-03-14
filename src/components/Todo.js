@@ -29,7 +29,8 @@ function Todo() {
           <div className="list">
             <ul key={index}>
               <li>
-                <p>{task}</p>
+                {task}
+                
               </li>
               <li>
                 <button
