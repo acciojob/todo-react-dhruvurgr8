@@ -21,29 +21,30 @@ function Todo() {
   };
   return (
     <>
-      <h1>To-Do List</h1>
-      <input value={inputValue} onChange={handleChange} type="text" />
-      <button onClick={handleClick}>ADD TODO</button>
-      <div className="task-list">
-        {tasks.map((task, index) => (
-          <div className="list">
-            <ul key={index}>
-              <li>
-                {task}
-                
+      <div style={{ margin: "20px" }}>
+        <h2>To-Do List</h2>
+        <div>
+          <input
+            placeholder="Enter Todo"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <button onClick={handleClick}>ADD TODO</button>
+        </div>
+        <ul className="tasks-list">
+          {tasks.map((task) => {
+            return (
+              <li className="task">
+                <div>
+                  <span>{task}</span>
+                </div>
+                <div>
+                  <button onClick={() => handleDelete(task)}>Delete</button>
+                </div>
               </li>
-              <li>
-                <button
-                  onClick={() => {
-                    handleDelete(task);
-                  }}
-                >
-                  Delete
-                </button>
-              </li>
-            </ul>
-          </div>
-        ))}
+            );
+          })}
+        </ul>
       </div>
     </>
   );
